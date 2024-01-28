@@ -14,7 +14,7 @@ public class OccurrenceService {
     @Autowired
     private OccurrenceRepository repo;
 
-    public Page<OccurrenceDTO> findAll(Pageable pageable){
+    public Page<OccurrenceDTO> findPage(Pageable pageable){
         Page<Occurrence> entity = repo.findAll(pageable);
         return entity.map(x -> new OccurrenceDTO(x));
     }
