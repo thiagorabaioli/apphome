@@ -1,16 +1,22 @@
 package tfr.APPHOME.entities;
 
+import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
 
-
+@Entity
+@Table(name = "user_app_db")
 public class UserAPP {
 
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
 
+    @OneToMany(mappedBy = "userAPP")
     private Set<Occurrence> occurrences = new HashSet<>();
 
     public UserAPP(){}

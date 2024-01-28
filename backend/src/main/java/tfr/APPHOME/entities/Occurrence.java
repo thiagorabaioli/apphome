@@ -1,12 +1,17 @@
 package tfr.APPHOME.entities;
 
+import jakarta.persistence.*;
 import tfr.APPHOME.enums.PRIORITY;
 import tfr.APPHOME.enums.STATEOFOCCURRENCE;
 
 import java.util.Date;
 
+@Entity
+@Table(name = "occurrence_db")
 public class Occurrence {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String occorrenceName;
 
@@ -20,6 +25,8 @@ public class Occurrence {
 
     private String img;
 
+    @ManyToOne
+    @JoinColumn(name = "userApp_id")
     private UserAPP userAPP;
 
     public Occurrence(){}
