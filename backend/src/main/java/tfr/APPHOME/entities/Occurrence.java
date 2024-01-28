@@ -1,5 +1,6 @@
 package tfr.APPHOME.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import tfr.APPHOME.enums.PRIORITY;
 import tfr.APPHOME.enums.STATEOFOCCURRENCE;
@@ -7,21 +8,24 @@ import tfr.APPHOME.enums.STATEOFOCCURRENCE;
 import java.util.Date;
 
 @Entity
-@Table(name = "occurrence_db")
+@Table(name = "tb_occurrence")
 public class Occurrence {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String occorrenceName;
+    private String occurrenceName;
 
-    private Date dataOpenOccorrence;
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
+    private Date dataOpenOccurrence;
 
-    private Date dataCloseOccorrence;
+    @JsonFormat(pattern="dd/MM/yyyy HH:mm")
+    private Date dataCloseOccurrence;
 
-    private STATEOFOCCURRENCE state;
 
-    private PRIORITY priority;
+    private Integer state;
+
+    private Integer priority;
 
     private String img;
 
@@ -31,15 +35,13 @@ public class Occurrence {
 
     public Occurrence(){}
 
-    public Occurrence(Long id, String occorrenceName, Date dataOpenOccorrence,
-                      Date dataCloseOccorrence, STATEOFOCCURRENCE state, PRIORITY priority, String img, UserAPP userAPP) {
-
+    public Occurrence(Long id, String occurrenceName, Date dataOpenOccurrence, Date dataCloseOccurrence, STATEOFOCCURRENCE state, PRIORITY priority, String img, UserAPP userAPP) {
         this.id = id;
-        this.occorrenceName = occorrenceName;
-        this.dataOpenOccorrence = dataOpenOccorrence;
-        this.dataCloseOccorrence = dataCloseOccorrence;
-        this.state = state;
-        this.priority = priority;
+        this.occurrenceName = occurrenceName;
+        this.dataOpenOccurrence = dataOpenOccurrence;
+        this.dataCloseOccurrence = dataCloseOccurrence;
+        this.state = state.getCod();
+        this.priority = priority.getCod();
         this.img = img;
         this.userAPP = userAPP;
     }
@@ -52,44 +54,44 @@ public class Occurrence {
         this.id = id;
     }
 
-    public String getOccorrenceName() {
-        return occorrenceName;
+    public String getOccurrenceName() {
+        return occurrenceName;
     }
 
-    public void setOccorrenceName(String occorrenceName) {
-        this.occorrenceName = occorrenceName;
+    public void setOccurrenceName(String occurrenceName) {
+        this.occurrenceName = occurrenceName;
     }
 
-    public Date getDataOpenOccorrence() {
-        return dataOpenOccorrence;
+    public Date getDataOpenOccurrence() {
+        return dataOpenOccurrence;
     }
 
-    public void setDataOpenOccorrence(Date dataOpenOccorrence) {
-        this.dataOpenOccorrence = dataOpenOccorrence;
+    public void setDataOpenOccurrence(Date dataOpenOccurrence) {
+        this.dataOpenOccurrence = dataOpenOccurrence;
     }
 
-    public Date getDataCloseOccorrence() {
-        return dataCloseOccorrence;
+    public Date getDataCloseOccurrence() {
+        return dataCloseOccurrence;
     }
 
-    public void setDataCloseOccorrence(Date dataCloseOccorrence) {
-        this.dataCloseOccorrence = dataCloseOccorrence;
+    public void setDataCloseOccurrence(Date dataCloseOccurrence) {
+        this.dataCloseOccurrence = dataCloseOccurrence;
     }
 
     public STATEOFOCCURRENCE getState() {
-        return state;
+        return STATEOFOCCURRENCE.toEnum(state);
     }
 
     public void setState(STATEOFOCCURRENCE state) {
-        this.state = state;
+        this.state = state.getCod();
     }
 
     public PRIORITY getPriority() {
-        return priority;
+        return PRIORITY.toEnum(priority);
     }
 
     public void setPriority(PRIORITY priority) {
-        this.priority = priority;
+        this.priority = priority.getCod();
     }
 
     public String getImg() {
