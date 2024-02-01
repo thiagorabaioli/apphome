@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tfr.APPHOME.dto.OccurrenceDTO;
+import tfr.APPHOME.dto.OccurrenceDTOid;
 import tfr.APPHOME.entities.Occurrence;
 import tfr.APPHOME.services.OccurrenceService;
 
@@ -25,8 +26,16 @@ public class OccurrenceController {
         return ResponseEntity.ok(dto);
     }
 
-    @PostMapping
+   // @PostMapping
     public ResponseEntity<OccurrenceDTO> insert (@RequestBody OccurrenceDTO dto){
+        dto = service.insert(dto);
+
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
+        return ResponseEntity.created(uri).body(dto);
+    }
+
+    @PostMapping
+    public ResponseEntity<OccurrenceDTOid> insert (@RequestBody OccurrenceDTOid dto){
         dto = service.insert(dto);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
