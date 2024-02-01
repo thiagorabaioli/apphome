@@ -22,7 +22,8 @@ public class AppHomeApplication implements CommandLineRunner {
 		UserAPP userApp1 = new UserAPP(null, "personNamw1", "sssss@mail.com");
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
-		Occurrence occurrence1 = new Occurrence(null,"Luz Avariada wc", sdf.parse("24/01/2024 10:00"), sdf.parse("28/01/2024 10:37"), STATEOFOCCURRENCE.OTHER
+		Occurrence occurrence1 = new Occurrence(null,"Luz Avariada wc", sdf.parse("24/01/2024 10:00"),
+				sdf.parse("28/01/2024 10:37"), STATEOFOCCURRENCE.OTHER
 		, PRIORITY.LOW, "img...", userApp1);
 	}
 }
