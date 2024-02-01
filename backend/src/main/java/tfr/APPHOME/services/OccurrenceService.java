@@ -28,8 +28,8 @@ public class OccurrenceService {
         entity.setOccurrenceName(dto.getOccurrenceName());
         entity.setDataOpenOccurrence(dto.getDataOpenOccurrence());
         entity.setDataCloseOccurrence(dto.getDataCloseOccurrence());
-        entity.setState(STATEOFOCCURRENCE.OTHER);
-        entity.setPriority(PRIORITY.LOW);
+        entity.setState(STATEOFOCCURRENCE.toEnum(dto.getState()));
+        entity.setPriority(PRIORITY.toEnum(dto.getPriority()));
         entity.setImg(dto.getImg());
 
         UserAPP user = new UserAPP();
@@ -46,8 +46,8 @@ public class OccurrenceService {
         entity.setOccurrenceName(dto.getOccurrenceName());
         entity.setDataOpenOccurrence(dto.getDataOpenOccurrence());
         entity.setDataCloseOccurrence(dto.getDataCloseOccurrence());
-        entity.setState(STATEOFOCCURRENCE.OTHER);
-        entity.setPriority(PRIORITY.LOW);
+        entity.setState(STATEOFOCCURRENCE.toEnum(dto.getState()));
+        entity.setPriority(PRIORITY.toEnum(dto.getPriority()));
         entity.setImg(dto.getImg());
 
         UserAPP user = new UserAPP();

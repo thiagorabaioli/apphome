@@ -1,11 +1,6 @@
 package tfr.APPHOME.dto;
 
-
-import tfr.APPHOME.entities.Occurrence;
 import tfr.APPHOME.entities.UserAPP;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class UserAPPDTO {
 

@@ -2,7 +2,7 @@ package tfr.APPHOME.dto;
 
 
 import tfr.APPHOME.entities.Occurrence;
-import tfr.APPHOME.entities.UserAPP;
+
 
 import java.util.Date;
 
@@ -24,7 +24,8 @@ public class OccurrenceDTO {
 
     public OccurrenceDTO(){}
 
-    public OccurrenceDTO(Long id, String occurrenceName, Date dataOpenOccurrence, Date dataCloseOccurrence, Integer state, Integer priority, String img, UserAPPDTO userAppDto) {
+    public OccurrenceDTO(Long id, String occurrenceName, Date dataOpenOccurrence,
+                         Date dataCloseOccurrence, Integer state, Integer priority, String img, UserAPPDTO userAppDto) {
         this.id = id;
         this.occurrenceName = occurrenceName;
         this.dataOpenOccurrence = dataOpenOccurrence;

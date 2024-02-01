@@ -7,6 +7,7 @@ import tfr.APPHOME.enums.STATEOFOCCURRENCE;
 
 import java.util.Date;
 
+
 @Entity
 @Table(name = "tb_occurrence")
 public class Occurrence {
