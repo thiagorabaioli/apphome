@@ -29,7 +29,7 @@ public class OccurrenceDTO {
     public OccurrenceDTO(){}
 
     public OccurrenceDTO(Long id, String occurrenceName, Date dataOpenOccurrence,
-                         Date dataCloseOccurrence, Integer state, Integer priority, String img, UserAPPDTO userAppDto, LocalDTO localDto) {
+                         Date dataCloseOccurrence, Integer state, Integer priority, String img, UserAPPDTO userAppDto, LocalDTO localDto, AddressedDTO addressedDTO) {
         this.id = id;
         this.occurrenceName = occurrenceName;
         this.dataOpenOccurrence = dataOpenOccurrence;
@@ -39,6 +39,7 @@ public class OccurrenceDTO {
         this.img = img;
         this.userAppDto = userAppDto;
         this.localDto = localDto;
+        this.addressDto = addressedDTO;
     }
 
     public OccurrenceDTO(Occurrence entity){

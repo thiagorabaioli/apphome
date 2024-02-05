@@ -133,4 +133,16 @@ public class Occurrence {
     public Local getLocal() {
         return local;
     }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
+
+    public void setLocal(Local local) {
+        this.local = local;
+    }
 }

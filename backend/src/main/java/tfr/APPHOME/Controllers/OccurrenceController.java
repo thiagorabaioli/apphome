@@ -25,7 +25,7 @@ public class OccurrenceController {
         return ResponseEntity.ok(dto);
     }
 
-    @PostMapping
+   // @PostMapping
     public ResponseEntity<OccurrenceDTO> insert (@RequestBody OccurrenceDTO dto){
         dto = service.insert(dto);
 
@@ -33,7 +33,7 @@ public class OccurrenceController {
         return ResponseEntity.created(uri).body(dto);
     }
 
-    //@PostMapping
+    @PostMapping
     public ResponseEntity<OccurrenceDTOid> insert (@RequestBody OccurrenceDTOid dto){
         dto = service.insert(dto);
 

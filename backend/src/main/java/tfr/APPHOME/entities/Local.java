@@ -1,7 +1,7 @@
 package tfr.APPHOME.entities;
 
 import jakarta.persistence.*;
-import tfr.APPHOME.enums.LOCAL;
+import tfr.APPHOME.enums.LOCALENUM;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class Local {
 
     public Local(){}
 
-    public Local(Long id, LOCAL local, String equipement) {
+    public Local(Long id, LOCALENUM local, String equipement) {
         this.id = id;
         this.local = local.getCod();
         this.equipement = equipement;
@@ -36,11 +36,11 @@ public class Local {
         this.id = id;
     }
 
-    public LOCAL getLocal() {
-        return LOCAL.toEnum(local);
+    public LOCALENUM getLocal() {
+        return LOCALENUM.toEnum(local);
     }
 
-    public void setLocal(LOCAL local) {
+    public void setLocal(LOCALENUM local) {
         this.local = local.getCod();
     }
 

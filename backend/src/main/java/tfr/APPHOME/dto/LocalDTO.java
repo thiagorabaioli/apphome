@@ -2,6 +2,7 @@ package tfr.APPHOME.dto;
 
 
 import tfr.APPHOME.entities.Local;
+import tfr.APPHOME.enums.LOCALENUM;
 
 public class LocalDTO {
 
@@ -12,9 +13,9 @@ public class LocalDTO {
 
     public LocalDTO(){}
 
-    public LocalDTO(Long id, Integer local, String equipement) {
+    public LocalDTO(Long id, LOCALENUM local, String equipement) {
         this.id = id;
-        this.local = local;
+        this.local = local.getCod();
         this.equipement = equipement;
     }
 

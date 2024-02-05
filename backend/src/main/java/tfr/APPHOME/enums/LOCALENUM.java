@@ -1,6 +1,6 @@
 package tfr.APPHOME.enums;
 
-public enum LOCAL {
+public enum LOCALENUM {
 
     WC (1, "WC"),
     COZINHA (2, "COZINHA"),
@@ -13,7 +13,7 @@ public enum LOCAL {
     private int cod;
     private String description;
 
-    private LOCAL(int cod, String description){
+    private LOCALENUM(int cod, String description){
         this.cod = cod;
         this.description = description;
     }
@@ -26,11 +26,11 @@ public enum LOCAL {
         return description;
     }
 
-    public static LOCAL toEnum(Integer cod){
+    public static LOCALENUM toEnum(Integer cod){
         if (cod == null){
             return null;
         }
-        for (LOCAL x : LOCAL.values()) {
+        for (LOCALENUM x : LOCALENUM.values()) {
             if(cod.equals(x.getCod())){
                 return x;
             }

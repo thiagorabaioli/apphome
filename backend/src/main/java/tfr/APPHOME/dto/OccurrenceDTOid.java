@@ -23,6 +23,8 @@ public class OccurrenceDTOid {
 
     private Long userAppId;
 
+
+
     public OccurrenceDTOid(Long id, String occurrenceName, Date dataOpenOccurrence, Date dataCloseOccurrence, Integer state, Integer priority, String img, Long userAppId) {
         this.id = id;
         this.occurrenceName = occurrenceName;
@@ -32,6 +34,9 @@ public class OccurrenceDTOid {
         this.priority = priority;
         this.img = img;
         this.userAppId = userAppId;
+
+
+
     }
 
     public OccurrenceDTOid (Occurrence entity){
@@ -43,6 +48,8 @@ public class OccurrenceDTOid {
         priority = PRIORITY.HIGH.getCod();
         img = entity.getImg();
         userAppId = entity.getUserAPP().getId();
+
+
     }
 
     public Long getId() {
@@ -76,4 +83,6 @@ public class OccurrenceDTOid {
     public Long getUserAppId() {
         return userAppId;
     }
+
+
 }
