@@ -22,10 +22,12 @@ public class OccurrenceDTO {
 
     private UserAPPDTO userAppDto;
 
+    private LocalDTO localDto;
+
     public OccurrenceDTO(){}
 
     public OccurrenceDTO(Long id, String occurrenceName, Date dataOpenOccurrence,
-                         Date dataCloseOccurrence, Integer state, Integer priority, String img, UserAPPDTO userAppDto) {
+                         Date dataCloseOccurrence, Integer state, Integer priority, String img, UserAPPDTO userAppDto, LocalDTO localDto) {
         this.id = id;
         this.occurrenceName = occurrenceName;
         this.dataOpenOccurrence = dataOpenOccurrence;
@@ -34,6 +36,7 @@ public class OccurrenceDTO {
         this.priority = priority;
         this.img = img;
         this.userAppDto = userAppDto;
+        this.localDto = localDto;
     }
 
     public OccurrenceDTO(Occurrence entity){
@@ -45,7 +48,7 @@ public class OccurrenceDTO {
         priority = entity.getPriority().getCod();
         img = entity.getImg();
         userAppDto = new UserAPPDTO(entity.getUserAPP());
-
+        localDto = new LocalDTO(entity.getLocal());
     }
 
     public Long getId() {
@@ -78,5 +81,9 @@ public class OccurrenceDTO {
 
     public UserAPPDTO getUserAppDto() {
         return userAppDto;
+    }
+
+    public LocalDTO getLocalDto() {
+        return localDto;
     }
 }

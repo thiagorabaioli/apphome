@@ -129,4 +129,8 @@ public class Occurrence {
     public void setAddressed(Addressed addressed) {
         this.addressed = addressed;
     }
+
+    public Local getLocal() {
+        return local;
+    }
 }
