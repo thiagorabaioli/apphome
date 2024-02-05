@@ -38,10 +38,14 @@ public class Occurrence {
     @JoinColumn(name = "local_id")
     private Local local;
 
+    @ManyToOne
+    @JoinColumn(name="addressed_id")
+    private Addressed addressed;
+
     public Occurrence(){}
 
     public Occurrence(Long id, String occurrenceName, Date dataOpenOccurrence, Date dataCloseOccurrence,
-                      STATEOFOCCURRENCE state, PRIORITY priority, String img, UserAPP userAPP, Local local) {
+                      STATEOFOCCURRENCE state, PRIORITY priority, String img, UserAPP userAPP, Local local, Addressed addressed) {
         this.id = id;
         this.occurrenceName = occurrenceName;
         this.dataOpenOccurrence = dataOpenOccurrence;
@@ -51,6 +55,7 @@ public class Occurrence {
         this.img = img;
         this.userAPP = userAPP;
         this.local = local;
+        this.addressed = addressed;
     }
 
     public Long getId() {
@@ -115,5 +120,13 @@ public class Occurrence {
 
     public void setUserAPP(UserAPP userAPP) {
         this.userAPP = userAPP;
+    }
+
+    public Addressed getAddressed() {
+        return addressed;
+    }
+
+    public void setAddressed(Addressed addressed) {
+        this.addressed = addressed;
     }
 }
