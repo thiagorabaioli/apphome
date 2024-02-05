@@ -24,6 +24,8 @@ public class OccurrenceDTO {
 
     private LocalDTO localDto;
 
+    private AddressedDTO addressDto;
+
     public OccurrenceDTO(){}
 
     public OccurrenceDTO(Long id, String occurrenceName, Date dataOpenOccurrence,
@@ -49,6 +51,7 @@ public class OccurrenceDTO {
         img = entity.getImg();
         userAppDto = new UserAPPDTO(entity.getUserAPP());
         localDto = new LocalDTO(entity.getLocal());
+        addressDto = new AddressedDTO(entity.getAddressed());
     }
 
     public Long getId() {
@@ -85,5 +88,9 @@ public class OccurrenceDTO {
 
     public LocalDTO getLocalDto() {
         return localDto;
+    }
+
+    public AddressedDTO getAddressDto() {
+        return addressDto;
     }
 }
