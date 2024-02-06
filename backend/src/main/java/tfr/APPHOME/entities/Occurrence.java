@@ -131,6 +131,7 @@ public class Occurrence {
     }
 
     public Local getLocal() {
+
         return local;
     }
 

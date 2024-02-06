@@ -1,5 +1,6 @@
 package tfr.APPHOME.dto;
 
+import tfr.APPHOME.entities.Local;
 import tfr.APPHOME.entities.Occurrence;
 import tfr.APPHOME.enums.PRIORITY;
 import tfr.APPHOME.enums.STATEOFOCCURRENCE;
@@ -23,9 +24,12 @@ public class OccurrenceDTOid {
 
     private Long userAppId;
 
+    private Long localId;
 
 
-    public OccurrenceDTOid(Long id, String occurrenceName, Date dataOpenOccurrence, Date dataCloseOccurrence, Integer state, Integer priority, String img, Long userAppId) {
+
+    public OccurrenceDTOid(Long id, String occurrenceName, Date dataOpenOccurrence, Date dataCloseOccurrence, Integer state, Integer priority,
+                           String img, Long userAppId, Long localId) {
         this.id = id;
         this.occurrenceName = occurrenceName;
         this.dataOpenOccurrence = dataOpenOccurrence;
@@ -34,6 +38,7 @@ public class OccurrenceDTOid {
         this.priority = priority;
         this.img = img;
         this.userAppId = userAppId;
+        this.localId = localId;
 
 
 
@@ -48,8 +53,7 @@ public class OccurrenceDTOid {
         priority = PRIORITY.HIGH.getCod();
         img = entity.getImg();
         userAppId = entity.getUserAPP().getId();
-
-
+        //localId = entity.getLocal().getId();
     }
 
     public Long getId() {
@@ -84,5 +88,7 @@ public class OccurrenceDTOid {
         return userAppId;
     }
 
-
+    public Long getLocalId() {
+        return localId;
+    }
 }
