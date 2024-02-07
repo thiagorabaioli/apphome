@@ -1,5 +1,6 @@
 package tfr.APPHOME.services;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import tfr.APPHOME.dto.UserAPPDTO;
 import tfr.APPHOME.entities.UserAPP;
 import tfr.APPHOME.repositories.UserAPPRepository;
+
+
 
 import java.util.Optional;
 
@@ -34,16 +37,25 @@ public class UserAPPService {
 
 
     public UserAPPDTO insert (UserAPPDTO dto){
-        UserAPP entity = new UserAPP();
-        copyToDto(dto,entity);
+        UserAPP entity = new UserAPP(); //Não monitorizado pela JPA
+         copyToDto(dto,entity);
+         entity = repo.save(entity);
         return new UserAPPDTO(entity);
     }
+  @Transactional
+    public UserAPPDTO update(Long id, UserAPPDTO dto){
+
+        UserAPP entity = repo.getReferenceById(id);  // obtém a referência
+        copyToDto(dto,entity);
+        entity = repo.save(entity);
+        return new UserAPPDTO(entity);
+    }
+
 
     private void copyToDto(UserAPPDTO dto, UserAPP entity) {
         entity.setId(dto.getId());
         entity.setName(dto.getName());
         entity.setEmail(dto.getEmail());
-        entity = repo.save(entity);
     }
 
 
