@@ -44,19 +44,23 @@ public class UserAPPService {
     }
   @Transactional
     public UserAPPDTO update(Long id, UserAPPDTO dto){
-
         UserAPP entity = repo.getReferenceById(id);  // obtém a referência
         copyToDto(dto,entity);
         entity = repo.save(entity);
         return new UserAPPDTO(entity);
     }
 
+    @Transactional
+    public void delete (Long id){
+        repo.deleteById(id);
+    }
+
 
     private void copyToDto(UserAPPDTO dto, UserAPP entity) {
-        entity.setId(dto.getId());
         entity.setName(dto.getName());
         entity.setEmail(dto.getEmail());
     }
+
 
 
 }
