@@ -18,6 +18,12 @@ public class UserAPPController {
     @Autowired
     private UserAPPService service;
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<UserAPPDTO> findById(@PathVariable Long id){
+        UserAPPDTO dto = service.findById(id);
+        return ResponseEntity.ok(dto);
+    }
+
     @GetMapping
     public ResponseEntity<Page<UserAPPDTO>> findPage(Pageable pageable){
         Page<UserAPPDTO> dto = service.findPage(pageable);
