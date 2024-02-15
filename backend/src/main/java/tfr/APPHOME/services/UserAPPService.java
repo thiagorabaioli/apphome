@@ -2,13 +2,16 @@ package tfr.APPHOME.services;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tfr.APPHOME.dto.UserAPPDTO;
 import tfr.APPHOME.entities.UserAPP;
 import tfr.APPHOME.repositories.UserAPPRepository;
+import tfr.APPHOME.services.exceptions.DataBaseException;
 import tfr.APPHOME.services.exceptions.ResourceNotFoundException;
 
 
@@ -48,9 +51,16 @@ public class UserAPPService {
         return new UserAPPDTO(entity);
     }
 
-    @Transactional
-    public void delete (Long id){
-        repo.deleteById(id);
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public void delete (Long id) {
+        if (!repo.existsById(id)) {
+            throw new ResourceNotFoundException("object not found to delete: " + id);
+        }
+         try {
+             repo.deleteById(id);
+         }catch (DataIntegrityViolationException e){
+             throw new DataBaseException("integrity constraint violation");
+         }
     }
 
 
