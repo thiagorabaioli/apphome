@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tfr.APPHOME.dto.UserAPPDTO;
 import tfr.APPHOME.entities.UserAPP;
 import tfr.APPHOME.repositories.UserAPPRepository;
-
+import tfr.APPHOME.services.exceptions.ResourceNotFoundException;
 
 
 import java.util.Optional;
@@ -23,10 +23,8 @@ public class UserAPPService {
 
     @Transactional(readOnly = true)
     public UserAPPDTO findById(Long id){
-        Optional<UserAPP> result = repo.findById(id); //BUsca no banco para o objeto Optional
-        UserAPP entity = result.get(); // entity extrai a referência do objeto Optional
-        UserAPPDTO dto = new UserAPPDTO(entity);
-        return dto;
+       UserAPP entity = repo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Object not found!"));
+       return new UserAPPDTO(entity);
     }
 
     public Page<UserAPPDTO> findPage(Pageable pageable){
