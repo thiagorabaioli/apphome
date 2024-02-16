@@ -1,5 +1,6 @@
 package tfr.APPHOME.Controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,7 +27,7 @@ public class OccurrenceController {
     }
 
    // @PostMapping
-    public ResponseEntity<OccurrenceDTO> insert (@RequestBody OccurrenceDTO dto){
+    public ResponseEntity<OccurrenceDTO> insert (@Valid @RequestBody OccurrenceDTO dto){
         dto = service.insert(dto);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
@@ -34,7 +35,7 @@ public class OccurrenceController {
     }
 
     @PostMapping
-    public ResponseEntity<OccurrenceDTOid> insert (@RequestBody OccurrenceDTOid dto){
+    public ResponseEntity<OccurrenceDTOid> insert (@Valid @RequestBody OccurrenceDTOid dto){
         dto = service.insert(dto);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();

@@ -8,7 +8,7 @@ import tfr.APPHOME.entities.UserAPP;
 public class UserAPPDTO {
 
     private Long id;
-    @Size(min=3, max = 80, message = "nName must be between 3 and 80 characters")
+    @Size(min=3, max = 80, message = "Name must be between 3 and 80 characters")
     @NotBlank(message = "required field")
     private String name;
     @Email(message = "email not valid")

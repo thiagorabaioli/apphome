@@ -1,6 +1,8 @@
 package tfr.APPHOME.dto;
 
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import tfr.APPHOME.entities.Occurrence;
 
 
@@ -8,6 +10,8 @@ import java.util.Date;
 
 public class OccurrenceDTO {
     private Long id;
+    @Size(min=3, max = 80, message = "occurrence description must be between 3 and 300 characters")
+    @NotBlank(message = "required field")
     private String occurrenceName;
 
     private Date dataOpenOccurrence;

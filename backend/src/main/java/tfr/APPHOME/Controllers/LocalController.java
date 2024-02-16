@@ -1,5 +1,6 @@
 package tfr.APPHOME.Controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ public class LocalController {
 
 
     @PostMapping
-    public ResponseEntity<LocalDTO> insert (@RequestBody LocalDTO dto){
+    public ResponseEntity<LocalDTO> insert (@Valid @RequestBody LocalDTO dto){
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
