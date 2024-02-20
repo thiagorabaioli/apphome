@@ -29,6 +29,7 @@ public class AppHomeApplication implements CommandLineRunner {
 
 	@Autowired
 	private AddressedRepository addressedRepository;
+	
 
 	@Autowired
 	private LocalRepository localRepository;
