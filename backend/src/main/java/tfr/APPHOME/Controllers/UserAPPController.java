@@ -24,6 +24,7 @@ public class UserAPPController {
         UserAPPDTO dto = service.findById(id);
         return ResponseEntity.ok(dto);
     }
+    
 
     @GetMapping
     public ResponseEntity<Page<UserAPPDTO>> findPage(Pageable pageable){
