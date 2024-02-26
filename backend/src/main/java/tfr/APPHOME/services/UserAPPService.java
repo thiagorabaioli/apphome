@@ -69,6 +69,6 @@ public class UserAPPService {
         entity.setEmail(dto.getEmail());
     }
 
-
+    
 
 }

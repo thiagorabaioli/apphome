@@ -1,5 +1,6 @@
 package tfr.APPHOME.dto;
 
+import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -11,6 +12,7 @@ public class UserAPPDTO {
     @Size(min=3, max = 80, message = "Name must be between 3 and 80 characters")
     @NotBlank(message = "required field")
     private String name;
+
     @Email(message = "email not valid")
     private String email;
 

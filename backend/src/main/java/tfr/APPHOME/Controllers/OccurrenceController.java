@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tfr.APPHOME.dto.OccurrenceDTO;
-import tfr.APPHOME.dto.OccurrenceDTOid;;
+import tfr.APPHOME.dto.OccurrenceDTOid;
 import tfr.APPHOME.services.OccurrenceService;
 
 import java.net.URI;
